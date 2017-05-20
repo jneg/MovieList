@@ -1,5 +1,7 @@
 <h2>{{title}}</h2>
-<ul>
-  <li *ngFor="let movie of movies">{{movie}}</li>
-</ul>
+<div *ngFor="let movie of movies">
+  {{movie}}
+  <button (click)="deleteMovieByName(movie)">Delete Movie</button>
+</div>
 <input type="text" [(ngModel)]="addMovieName"><button (click)="addMovieByName()">Add Movie</button>
+<button (click)="deleteMovieList()">Delete List</button>

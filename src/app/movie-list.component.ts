@@ -8,9 +8,17 @@ export class MovieListComponent  {
   @Input() title: string;
   @Input() movies: string[];
   @Output() addMovie:EventEmitter<string> = new EventEmitter();
-  addMovieName: string = ''
+  @Output() deleteMovie:EventEmitter<string> = new EventEmitter();
+  @Output() deleteList:EventEmitter<string> = new EventEmitter();
+  addMovieName: string = '';
   addMovieByName(): void {
     this.addMovie.emit(this.addMovieName);
     this.addMovieName = '';
-  }
+  };
+  deleteMovieByName(name: string): void {
+    this.deleteMovie.emit(name);
+  };
+  deleteMovieList(): void {
+    this.deleteList.emit();
+  };
 }
