@@ -1,7 +1,19 @@
-<h2>{{title}}</h2>
-<div *ngFor="let movie of movies">
-  {{movie}}
-  <button (click)="deleteMovieByName(movie)">Delete Movie</button>
+<div>
+  <h2 (click)="toggleShow()">{{title}}</h2>
+  <div *ngIf="showList">
+    <div *ngFor="let movie of movies; let i = index;">
+      {{movie}}
+      <input type="text" [(ngModel)]="updateMovieName[i]">
+      <button (click)="updateMovieByName(movie, i)">Update Movie</button>
+      <button (click)="deleteMovieByName(movie)">Delete Movie</button>
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="addMovieName" (keyup)="showApiMovies()">
+      <div *ngFor="let m of apiMovies;">
+        {{m}}
+      </div>
+      <button (click)="addMovieByName()">Add Movie</button>
+    </div>
+    <button (click)="deleteMovieList()">Delete List</button>
+  </div>
 </div>
-<input type="text" [(ngModel)]="addMovieName"><button (click)="addMovieByName()">Add Movie</button>
-<button (click)="deleteMovieList()">Delete List</button>

@@ -27,12 +27,12 @@ export class AppComponent  {
     })
     movieList.movies.push(movie);
   };
-  updateMovie(list: string, movie: string, newName: string): void {
+  updateMovie(list: string, event: {oldName: string, newName: string}): void {
     const movieList = this.movieLists.find(function(e) {
       return e.title === list;
     });
-    const i = movieList.movies.indexOf(movie);
-    movieList[i] = newName;
+    const i = movieList.movies.indexOf(event.oldName);
+    movieList.movies[i] = event.newName;
   };
   deleteMovie(list: string, movie: string): void {
     const movieList = this.movieLists.find(function(e) {

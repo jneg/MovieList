@@ -1,3 +1,3 @@
 <h1>{{appTitle}}</h1>
 <create-movie-list (createMovieListName)="createMovieList($event)"></create-movie-list>
-<movie-list *ngFor="let ml of movieLists" [title]="ml.title" [movies]="ml.movies" (addMovie)="createMovie(ml.title, $event)" (deleteMovie)="deleteMovie(ml.title, $event)"(deleteList)="deleteMovieList(ml.title)"></movie-list>
+<movie-list *ngFor="let ml of movieLists" [title]="ml.title" [movies]="ml.movies" (addMovie)="createMovie(ml.title, $event)" (updateMovie)="updateMovie(ml.title, $event)" (deleteMovie)="deleteMovie(ml.title, $event)"(deleteList)="deleteMovieList(ml.title)"></movie-list>
